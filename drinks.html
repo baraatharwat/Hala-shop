@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المشروبات - هلا شوب</title>
+<title>المشروبات</title>
 
 <style>
 body{
   margin:0;
-  font-family: system-ui, Arial;
-  background:#0f172a;
+  font-family: system-ui;
+  background:#0b1220;
   color:white;
 }
 
@@ -20,63 +20,44 @@ header{
 }
 
 .container{
-  max-width:900px;
+  max-width:1000px;
   margin:auto;
   padding:20px;
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:10px;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
 }
 
-.item{
+.product{
   background:#111827;
-  padding:15px;
-  border-radius:12px;
+  border-radius:16px;
+  overflow:hidden;
   text-align:center;
 }
 
-/* buttons */
-button{
-  background:#22c55e;
-  border:none;
-  padding:8px 10px;
-  margin-top:8px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:bold;
+.product img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
 }
 
-/* cart */
+.product button{
+  width:100%;
+  padding:10px;
+  background:#22c55e;
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
+}
+
 .cart{
   background:#1f2937;
   padding:15px;
-  border-radius:12px;
   margin-top:20px;
-}
-
-.cart-item{
-  display:flex;
-  justify-content:space-between;
-  margin:5px 0;
-}
-
-.total{
-  font-size:18px;
-  margin-top:10px;
-}
-
-/* whatsapp */
-a{
-  display:inline-block;
-  margin-top:10px;
-  background:#25D366;
-  color:white;
-  padding:10px 14px;
-  border-radius:10px;
-  text-decoration:none;
+  border-radius:12px;
 }
 </style>
 </head>
@@ -84,96 +65,70 @@ a{
 <body>
 
 <header>
-  <h1>🥤 المشروبات - هلا شوب</h1>
+  <h1>🥤 المشروبات</h1>
 </header>
 
 <div class="container">
 
 <div class="grid">
 
-  <div class="item">
-    كينزا - 0.250 د.ك<br>
-    <button onclick="addToCart('كينزا',0.250)">أضف للسلة</button>
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97">
+    <p>كينزا - 0.250 KD</p>
+    <button onclick="add('كينزا',0.250)">أضف</button>
   </div>
 
-  <div class="item">
-    فريز - 0.300 د.ك<br>
-    <button onclick="addToCart('فريز',0.300)">أضف للسلة</button>
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1625772299848-391b3b8c2f8a">
+    <p>فريز - 0.300 KD</p>
+    <button onclick="add('فريز',0.300)">أضف</button>
   </div>
 
-  <div class="item">
-    مياه - 0.100 د.ك<br>
-    <button onclick="addToCart('مياه',0.100)">أضف للسلة</button>
-  </div>
-
-  <div class="item">
-    بيبسي - 0.250 د.ك<br>
-    <button onclick="addToCart('بيبسي',0.250)">أضف للسلة</button>
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba3">
+    <p>مياه - 0.100 KD</p>
+    <button onclick="add('مياه',0.100)">أضف</button>
   </div>
 
 </div>
 
-<!-- CART -->
 <div class="cart">
-  <h3>🛒 السلة</h3>
-  <div id="cartItems"></div>
+<h3>🛒 السلة</h3>
+<div id="items"></div>
+<p>المجموع: <span id="total">0</span> KD</p>
 
-  <div class="total">
-    المجموع: <span id="total">0.000</span> د.ك
-  </div>
-
-  <button onclick="checkout()">إرسال الطلب واتساب</button>
+<button onclick="checkout()">إرسال واتساب</button>
 </div>
 
 <br>
-<a href="index.html">⬅ رجوع</a>
+<a href="index.html" style="color:#22c55e">⬅ رجوع</a>
 
 </div>
 
 <script>
-let cart = [];
+let cart=[];
+let total=0;
 
-function addToCart(name, price){
+function add(name,price){
   cart.push({name,price});
-  renderCart();
+  total+=price;
+  render();
 }
 
-function renderCart(){
-  let html = "";
-  let total = 0;
-
-  cart.forEach((item,i)=>{
-    total += item.price;
-    html += `<div class="cart-item">
-      <span>${item.name}</span>
-      <span>${item.price.toFixed(3)} KD</span>
-    </div>`;
-  });
-
-  document.getElementById("cartItems").innerHTML = html;
-  document.getElementById("total").innerText = total.toFixed(3);
+function render(){
+  document.getElementById("items").innerHTML =
+  cart.map(i=>`<div>${i.name} - ${i.price}</div>`).join("");
+  document.getElementById("total").innerText=total.toFixed(3);
 }
 
 function checkout(){
-  if(cart.length === 0){
-    alert("السلة فارغة");
-    return;
-  }
-
-  let message = "طلب جديد:%0A";
-
-  let total = 0;
-
-  cart.forEach(item=>{
-    message += "- " + item.name + " " + item.price + " KD%0A";
-    total += item.price;
+  let msg="طلب جديد:%0A";
+  cart.forEach(i=>{
+    msg+=`- ${i.name} ${i.price} KD%0A`;
   });
+  msg+=`%0Aالمجموع: ${total.toFixed(3)} KD`;
 
-  message += "%0Aالمجموع: " + total.toFixed(3) + " KD";
-
-  let phone = "96597984011";
-
-  window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+  window.open("https://wa.me/96597984011?text="+encodeURIComponent(msg));
 }
 </script>
 
