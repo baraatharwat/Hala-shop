@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المشروبات</title>
+<title>المشروبات - هلا شوب</title>
 
 <style>
 body{
@@ -20,42 +20,71 @@ header{
 }
 
 .container{
-  max-width:800px;
+  max-width:900px;
   margin:auto;
   padding:20px;
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
   gap:10px;
 }
 
 .item{
   background:#111827;
-  padding:20px;
+  padding:15px;
   border-radius:12px;
   text-align:center;
 }
 
-.btn{
-  display:inline-block;
+/* buttons */
+button{
   background:#22c55e;
-  color:black;
-  padding:10px 12px;
+  border:none;
+  padding:8px 10px;
+  margin-top:8px;
   border-radius:8px;
-  text-decoration:none;
+  cursor:pointer;
   font-weight:bold;
+}
+
+/* cart */
+.cart{
+  background:#1f2937;
+  padding:15px;
+  border-radius:12px;
+  margin-top:20px;
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  margin:5px 0;
+}
+
+.total{
+  font-size:18px;
   margin-top:10px;
 }
-</style>
 
+/* whatsapp */
+a{
+  display:inline-block;
+  margin-top:10px;
+  background:#25D366;
+  color:white;
+  padding:10px 14px;
+  border-radius:10px;
+  text-decoration:none;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>🥤 المشروبات</h1>
+  <h1>🥤 المشروبات - هلا شوب</h1>
 </header>
 
 <div class="container">
@@ -63,36 +92,90 @@ header{
 <div class="grid">
 
   <div class="item">
-    كينزا<br>
-    0.250 KD<br>
-    <a class="btn" href="https://wa.me/96597984011?text=أريد%20كينزا%200.250KD">
-      طلب
-    </a>
+    كينزا - 0.250 د.ك<br>
+    <button onclick="addToCart('كينزا',0.250)">أضف للسلة</button>
   </div>
 
   <div class="item">
-    فريز<br>
-    0.300 KD<br>
-    <a class="btn" href="https://wa.me/96597984011?text=أريد%20فريز%200.300KD">
-      طلب
-    </a>
+    فريز - 0.300 د.ك<br>
+    <button onclick="addToCart('فريز',0.300)">أضف للسلة</button>
   </div>
 
   <div class="item">
-    مياه<br>
-    0.100 KD<br>
-    <a class="btn" href="https://wa.me/96597984011?text=أريد%20مياه%200.100KD">
-      طلب
-    </a>
+    مياه - 0.100 د.ك<br>
+    <button onclick="addToCart('مياه',0.100)">أضف للسلة</button>
   </div>
 
+  <div class="item">
+    بيبسي - 0.250 د.ك<br>
+    <button onclick="addToCart('بيبسي',0.250)">أضف للسلة</button>
+  </div>
+
+</div>
+
+<!-- CART -->
+<div class="cart">
+  <h3>🛒 السلة</h3>
+  <div id="cartItems"></div>
+
+  <div class="total">
+    المجموع: <span id="total">0.000</span> د.ك
+  </div>
+
+  <button onclick="checkout()">إرسال الطلب واتساب</button>
 </div>
 
 <br>
-
-<a class="btn" href="index.html">⬅ رجوع</a>
+<a href="index.html">⬅ رجوع</a>
 
 </div>
+
+<script>
+let cart = [];
+
+function addToCart(name, price){
+  cart.push({name,price});
+  renderCart();
+}
+
+function renderCart(){
+  let html = "";
+  let total = 0;
+
+  cart.forEach((item,i)=>{
+    total += item.price;
+    html += `<div class="cart-item">
+      <span>${item.name}</span>
+      <span>${item.price.toFixed(3)} KD</span>
+    </div>`;
+  });
+
+  document.getElementById("cartItems").innerHTML = html;
+  document.getElementById("total").innerText = total.toFixed(3);
+}
+
+function checkout(){
+  if(cart.length === 0){
+    alert("السلة فارغة");
+    return;
+  }
+
+  let message = "طلب جديد:%0A";
+
+  let total = 0;
+
+  cart.forEach(item=>{
+    message += "- " + item.name + " " + item.price + " KD%0A";
+    total += item.price;
+  });
+
+  message += "%0Aالمجموع: " + total.toFixed(3) + " KD";
+
+  let phone = "96597984011";
+
+  window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+}
+</script>
 
 </body>
 </html>
