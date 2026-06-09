@@ -26,10 +26,6 @@ header h1{
   font-size:40px;
 }
 
-header p{
-  margin-top:10px;
-}
-
 /* CONTAINER */
 .container{
   max-width:900px;
@@ -46,12 +42,6 @@ header p{
   border-radius:16px;
 }
 
-/* TITLES */
-h2{
-  color:#22c55e;
-  margin-top:0;
-}
-
 /* GRID */
 .grid{
   display:grid;
@@ -60,11 +50,15 @@ h2{
 }
 
 .item{
+  display:block;
+  text-decoration:none;
   background:#0f172a;
   border:1px solid #1f2937;
   padding:14px;
   border-radius:12px;
   text-align:center;
+  color:white;
+  font-weight:bold;
 }
 
 /* VIDEO */
@@ -84,7 +78,6 @@ h2{
   border-radius:10px;
   font-weight:bold;
   text-decoration:none;
-  margin-top:10px;
 }
 
 /* WHATSAPP */
@@ -99,14 +92,6 @@ h2{
   text-decoration:none;
   font-weight:bold;
 }
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:20px;
-  border-top:1px solid #1f2937;
-  color:#9ca3af;
-}
 </style>
 
 </head>
@@ -115,43 +100,61 @@ footer{
 
 <header>
   <h1>🛒 هلا شوب</h1>
-  <p>بقالة تعمل 24 ساعة - السالمية، الكويت</p>
 </header>
 
 <div class="container">
 
-<!-- ABOUT -->
-<div class="card">
-  <h2>نبذة عنا</h2>
-  <p>نوفر جميع المواد الغذائية والاحتياجات اليومية مع خدمة توصيل سريعة داخل السالمية.</p>
-</div>
-
-<!-- PRODUCTS -->
-<div class="card">
+<!-- HOME -->
+<div class="card" id="home">
   <h2>الأقسام</h2>
 
   <div class="grid">
-    <div class="item">مشروبات 🥤</div>
-    <div class="item">وجبات خفيفة 🍫</div>
-    <div class="item">ألبان 🥛</div>
-    <div class="item">مخبوزات 🍞</div>
-    <div class="item">منظفات 🧼</div>
-    <div class="item">عناية شخصية 🧴</div>
+    <a class="item" href="#drinks">المشروبات 🥤</a>
+    <a class="item" href="#snacks">الوجبات 🍫</a>
+    <a class="item" href="#dairy">الألبان 🥛</a>
   </div>
 </div>
 
-<!-- DRINKS -->
-<div class="card">
+<!-- DRINKS PAGE -->
+<div class="card" id="drinks">
   <h2>المشروبات 🥤</h2>
 
   <div class="grid">
-    <div class="item">كينزا كولا<br><b>0.250 د.ك</b></div>
-    <div class="item">كينزا ليمون<br><b>0.250 د.ك</b></div>
-    <div class="item">فريز<br><b>0.300 د.ك</b></div>
-    <div class="item">مياه صغيرة<br><b>0.100 د.ك</b></div>
-    <div class="item">مياه كبيرة<br><b>0.200 د.ك</b></div>
-    <div class="item">بيبسي<br><b>0.250 د.ك</b></div>
+
+    <a class="item" href="#kinza">
+      كينزا
+    </a>
+
+    <a class="item" href="#freez">
+      فريز
+    </a>
+
+    <a class="item" href="#water">
+      مياه
+    </a>
+
   </div>
+</div>
+
+<!-- KINZA PAGE -->
+<div class="card" id="kinza">
+  <h2>كينزا 🥤</h2>
+  <p>السعر: 0.250 د.ك</p>
+  <a class="btn" href="https://wa.me/96597984011">اطلب الآن</a>
+</div>
+
+<!-- FREEZ PAGE -->
+<div class="card" id="freez">
+  <h2>فريز 🧊</h2>
+  <p>السعر: 0.300 د.ك</p>
+  <a class="btn" href="https://wa.me/96597984011">اطلب الآن</a>
+</div>
+
+<!-- WATER PAGE -->
+<div class="card" id="water">
+  <h2>مياه 💧</h2>
+  <p>السعر: 0.100 د.ك</p>
+  <a class="btn" href="https://wa.me/96597984011">اطلب الآن</a>
 </div>
 
 <!-- OFFERS VIDEO -->
@@ -159,25 +162,8 @@ footer{
   <h2>العروض الحالية</h2>
 
   <iframe class="video"
-    src="https://drive.google.com/file/d/1iMf2Uevs5F-wLeO3YOxOf5Ad21g55umj/preview"
-    allow="autoplay">
+    src="https://drive.google.com/file/d/1iMf2Uevs5F-wLeO3YOxOf5Ad21g55umj/preview">
   </iframe>
-</div>
-
-<!-- DELIVERY -->
-<div class="card">
-  <h2>التوصيل</h2>
-  <p>توصيل سريع داخل السالمية والمناطق القريبة.</p>
-</div>
-
-<!-- CONTACT -->
-<div class="card">
-  <h2>تواصل معنا</h2>
-  <p>واتساب: +965 97984011</p>
-
-  <a class="btn" href="https://wa.me/96597984011">
-    طلب عبر واتساب
-  </a>
 </div>
 
 </div>
@@ -185,10 +171,6 @@ footer{
 <a class="whatsapp" href="https://wa.me/96597984011">
 💬 واتساب
 </a>
-
-<footer>
-© هلا شوب - جميع الحقوق محفوظة
-</footer>
 
 </body>
 </html>
