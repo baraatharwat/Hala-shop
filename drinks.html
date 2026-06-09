@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المشروبات - هلا شوب</title>
+<title>المشروبات</title>
 
 <style>
 body{
@@ -27,29 +27,26 @@ header{
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
   gap:10px;
 }
 
 .item{
   background:#111827;
-  padding:15px;
+  padding:20px;
   border-radius:12px;
   text-align:center;
 }
 
-/* buttons */
 button{
   background:#22c55e;
   border:none;
   padding:8px 10px;
-  margin-top:8px;
   border-radius:8px;
-  cursor:pointer;
   font-weight:bold;
+  margin-top:8px;
 }
 
-/* cart */
 .cart{
   background:#1f2937;
   padding:15px;
@@ -63,28 +60,23 @@ button{
   margin:5px 0;
 }
 
-.total{
-  font-size:18px;
-  margin-top:10px;
-}
-
-/* whatsapp */
-a{
+.btn{
   display:inline-block;
-  margin-top:10px;
   background:#25D366;
   color:white;
   padding:10px 14px;
   border-radius:10px;
   text-decoration:none;
+  margin-top:10px;
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
-  <h1>🥤 المشروبات - هلا شوب</h1>
+  <h1>🥤 المشروبات</h1>
 </header>
 
 <div class="container">
@@ -92,61 +84,57 @@ a{
 <div class="grid">
 
   <div class="item">
-    كينزا - 0.250 د.ك<br>
-    <button onclick="addToCart('كينزا',0.250)">أضف للسلة</button>
+    كينزا<br>0.250 KD
+    <button onclick="add('كينزا',0.250)">أضف</button>
   </div>
 
   <div class="item">
-    فريز - 0.300 د.ك<br>
-    <button onclick="addToCart('فريز',0.300)">أضف للسلة</button>
+    فريز<br>0.300 KD
+    <button onclick="add('فريز',0.300)">أضف</button>
   </div>
 
   <div class="item">
-    مياه - 0.100 د.ك<br>
-    <button onclick="addToCart('مياه',0.100)">أضف للسلة</button>
-  </div>
-
-  <div class="item">
-    بيبسي - 0.250 د.ك<br>
-    <button onclick="addToCart('بيبسي',0.250)">أضف للسلة</button>
+    مياه<br>0.100 KD
+    <button onclick="add('مياه',0.100)">أضف</button>
   </div>
 
 </div>
 
-<!-- CART -->
 <div class="cart">
   <h3>🛒 السلة</h3>
   <div id="cartItems"></div>
+  <p>المجموع: <span id="total">0</span> KD</p>
 
-  <div class="total">
-    المجموع: <span id="total">0.000</span> د.ك
-  </div>
-
-  <button onclick="checkout()">إرسال الطلب واتساب</button>
+  <button onclick="checkout()">إرسال واتساب</button>
 </div>
 
 <br>
-<a href="index.html">⬅ رجوع</a>
+<a href="index.html" style="color:#22c55e">⬅ رجوع</a>
 
 </div>
 
 <script>
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
-function addToCart(name, price){
-  cart.push({name,price});
-  renderCart();
+function save(){
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-function renderCart(){
+function add(name,price){
+  cart.push({name,price});
+  save();
+  render();
+}
+
+function render(){
   let html = "";
   let total = 0;
 
-  cart.forEach((item,i)=>{
-    total += item.price;
+  cart.forEach((i,idx)=>{
+    total += i.price;
     html += `<div class="cart-item">
-      <span>${item.name}</span>
-      <span>${item.price.toFixed(3)} KD</span>
+      <span>${i.name}</span>
+      <span>${i.price.toFixed(3)}</span>
     </div>`;
   });
 
@@ -160,21 +148,20 @@ function checkout(){
     return;
   }
 
-  let message = "طلب جديد:%0A";
-
+  let msg = "طلب جديد:%0A";
   let total = 0;
 
-  cart.forEach(item=>{
-    message += "- " + item.name + " " + item.price + " KD%0A";
-    total += item.price;
+  cart.forEach(i=>{
+    msg += `- ${i.name} ${i.price} KD%0A`;
+    total += i.price;
   });
 
-  message += "%0Aالمجموع: " + total.toFixed(3) + " KD";
+  msg += `%0Aالمجموع: ${total.toFixed(3)} KD`;
 
-  let phone = "96597984011";
-
-  window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+  window.open("https://wa.me/96597984011?text=" + encodeURIComponent(msg));
 }
+
+render();
 </script>
 
 </body>
