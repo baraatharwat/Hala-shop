@@ -8,130 +8,80 @@
 <style>
 body{
   margin:0;
-  font-family: system-ui, Arial;
-  background:#0f172a;
-  color:#e5e7eb;
-}
-
-/* HEADER */
-header{
-  background:linear-gradient(135deg,#16a34a,#22c55e);
-  text-align:center;
-  padding:50px 20px;
+  font-family: system-ui;
+  background:#0b1220;
   color:white;
 }
 
-header h1{
-  margin:0;
-  font-size:40px;
+header{
+  background:linear-gradient(135deg,#16a34a,#22c55e);
+  text-align:center;
+  padding:50px;
 }
 
-/* CONTAINER */
 .container{
-  max-width:900px;
+  max-width:800px;
   margin:auto;
   padding:20px;
 }
 
-/* CARD */
 .card{
   background:#111827;
-  border:1px solid #1f2937;
   padding:20px;
-  margin:15px 0;
   border-radius:16px;
   text-align:center;
+  margin-top:15px;
 }
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:10px;
-}
-
-/* BUTTON */
-a{
+.btn{
   display:inline-block;
   background:#22c55e;
   color:black;
-  padding:12px 18px;
+  padding:12px 16px;
   border-radius:10px;
   text-decoration:none;
   font-weight:bold;
 }
 
-/* VIDEO */
-.video{
-  width:100%;
-  aspect-ratio:16/9;
-  border:none;
+.cartBox{
+  background:#1f2937;
+  padding:15px;
   border-radius:12px;
-}
-
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:14px 16px;
-  border-radius:50px;
-  text-decoration:none;
+  margin-top:15px;
 }
 </style>
-
 </head>
 
 <body>
 
 <header>
   <h1>🛒 هلا شوب</h1>
-  <p>بقالة 24 ساعة - السالمية الكويت</p>
+  <p>بقالة إلكترونية</p>
 </header>
 
 <div class="container">
 
-<!-- ABOUT -->
-<div class="card">
-  <h2>نبذة عنا</h2>
-  <p>نوفر جميع المواد الغذائية والمشروبات مع خدمة توصيل سريعة داخل السالمية.</p>
-</div>
-
-<!-- CATEGORIES -->
 <div class="card">
   <h2>الأقسام</h2>
-
-  <div class="grid">
-    <a href="drinks.html">المشروبات 🥤</a>
-    <a href="#">الوجبات 🍫</a>
-    <a href="#">الألبان 🥛</a>
-  </div>
+  <a class="btn" href="drinks.html">🥤 المشروبات</a>
 </div>
 
-<!-- VIDEO -->
 <div class="card">
-  <h2>العروض الحالية</h2>
-
-  <iframe class="video"
-    src="https://drive.google.com/file/d/1iMf2Uevs5F-wLeO3YOxOf5Ad21g55umj/preview">
-  </iframe>
-</div>
-
-<!-- CONTACT -->
-<div class="card">
-  <h2>تواصل معنا</h2>
-  <p>واتساب: +965 97984011</p>
-
-  <a href="https://wa.me/96597984011">اطلب الآن</a>
+  <h2>🛒 السلة</h2>
+  <div id="cartBox">تحميل...</div>
 </div>
 
 </div>
 
-<a class="whatsapp" href="https://wa.me/96597984011">
-💬
-</a>
+<script>
+let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+let totalItems = cart.reduce((a,b)=>a+b.qty,0);
+let totalPrice = cart.reduce((a,b)=>a+(b.price*b.qty),0);
+
+document.getElementById("cartBox").innerHTML =
+`عدد المنتجات: ${totalItems}<br>المجموع: ${totalPrice.toFixed(3)} KD`;
+</script>
 
 </body>
 </html>
