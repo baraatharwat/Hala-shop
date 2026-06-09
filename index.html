@@ -8,56 +8,49 @@
 <style>
 body{
   margin:0;
-  font-family: system-ui;
-  background:#0b1220;
+  font-family: system-ui, Arial;
+  background:#0f172a;
   color:white;
 }
 
 header{
   background:linear-gradient(135deg,#16a34a,#22c55e);
   text-align:center;
-  padding:50px;
+  padding:50px 20px;
+}
+
+header h1{
+  margin:0;
+  font-size:40px;
 }
 
 .container{
-  max-width:1000px;
+  max-width:800px;
   margin:auto;
   padding:20px;
 }
 
-h2{color:#22c55e}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:15px;
-}
-
 .card{
   background:#111827;
+  padding:25px;
   border-radius:16px;
-  overflow:hidden;
   text-align:center;
-  transition:0.3s;
+  margin-top:20px;
 }
 
-.card:hover{
-  transform:scale(1.03);
-}
-
-.card img{
-  width:100%;
-  height:140px;
-  object-fit:cover;
-}
-
-.card a{
-  display:block;
-  padding:12px;
+.btn{
+  display:inline-block;
   background:#22c55e;
   color:black;
+  padding:12px 18px;
+  border-radius:10px;
   text-decoration:none;
   font-weight:bold;
+  margin-top:10px;
+}
+
+small{
+  color:#9ca3af;
 }
 </style>
 
@@ -67,26 +60,27 @@ h2{color:#22c55e}
 
 <header>
   <h1>🛒 هلا شوب</h1>
-  <p>متجر إلكتروني - توصيل سريع</p>
+  <small>بقالة إلكترونية - توصيل سريع</small>
 </header>
 
 <div class="container">
 
-<h2>الأقسام</h2>
+<div class="card">
+  <h2>الأقسام</h2>
 
-<div class="grid">
+  <p>اختر القسم الذي تريده</p>
 
-  <div class="card">
-   <!-- Drinks -->
-<img src="https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=600" />
+  <a class="btn" href="drinks.html">🥤 المشروبات</a>
+</div>
 
-<!-- Snacks -->
-<img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=600" />
+<div class="card">
+  <h2>معلومات</h2>
+  <p>نوفر مشروبات بأسعار مناسبة وتوصيل داخل المنطقة</p>
+</div>
 
-<!-- Dairy -->
-<img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=600" />
-  </div>
-
+<div class="card">
+  <h2>تواصل معنا</h2>
+  <a class="btn" href="https://wa.me/96597984011">واتساب</a>
 </div>
 
 </div>
