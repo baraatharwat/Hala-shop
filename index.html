@@ -23,7 +23,7 @@ header{
 
 header h1{
   margin:0;
-  font-size:34px;
+  font-size:36px;
 }
 
 header p{
@@ -48,13 +48,12 @@ section{
   box-shadow:0 10px 25px rgba(0,0,0,0.35);
 }
 
-/* TITLES */
 h2{
   color:#22c55e;
   margin-top:0;
 }
 
-/* PRODUCT GRID */
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
@@ -67,18 +66,6 @@ h2{
   padding:12px;
   border-radius:12px;
   text-align:center;
-}
-
-/* BUTTON */
-.btn{
-  display:inline-block;
-  background:#22c55e;
-  color:black;
-  padding:12px 18px;
-  border-radius:10px;
-  font-weight:700;
-  text-decoration:none;
-  margin-top:10px;
 }
 
 /* VIDEO */
@@ -100,7 +87,19 @@ h2{
   border:0;
 }
 
-/* WHATSAPP BUTTON */
+/* BUTTON */
+.btn{
+  display:inline-block;
+  background:#22c55e;
+  color:black;
+  padding:12px 18px;
+  border-radius:10px;
+  font-weight:700;
+  text-decoration:none;
+  margin-top:10px;
+}
+
+/* WHATSAPP */
 .whatsapp{
   position:fixed;
   bottom:18px;
@@ -114,23 +113,12 @@ h2{
   box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
-/* BANNER */
-.banner{
-  background:linear-gradient(135deg,#ef4444,#f97316);
-  padding:15px;
-  border-radius:12px;
-  text-align:center;
-  font-weight:700;
-  margin-bottom:15px;
-}
-
 /* FOOTER */
 footer{
   text-align:center;
   padding:20px;
   background:#0b1220;
   border-top:1px solid #1f2937;
-  margin-top:20px;
 }
 </style>
 
@@ -139,56 +127,47 @@ footer{
 <body>
 
 <header>
-  <h1>🛒 هلا شوب</h1>
+  <h1>هلا شوب 🛒</h1>
   <p>متجر بقالة يعمل على مدار الساعة في السالمية - الكويت</p>
 </header>
 
 <section>
 
-<div class="banner">
-🔴 عروض خاصة متوفرة الآن 🔴
-</div>
-
+<!-- ABOUT -->
 <div class="card">
   <h2>نبذة عنا</h2>
-  <p>نقدم جميع المواد الغذائية والاحتياجات اليومية مع خدمة توصيل سريعة داخل منطقة السالمية.</p>
+  <p>نقدم جميع المواد الغذائية والاحتياجات اليومية مع خدمة توصيل سريعة داخل السالمية.</p>
 </div>
 
+<!-- PRODUCTS -->
 <div class="card">
   <h2>المنتجات</h2>
   <div class="grid">
     <div class="item">المشروبات</div>
     <div class="item">الوجبات الخفيفة</div>
-    <div class="item">منتجات الألبان</div>
+    <div class="item">الألبان</div>
     <div class="item">المخبوزات</div>
-    <div class="item">المنظفات المنزلية</div>
+    <div class="item">المنظفات</div>
     <div class="item">العناية الشخصية</div>
   </div>
 </div>
 
+<!-- OFFERS VIDEO -->
 <div class="card">
   <h2>العروض الحالية</h2>
-<a class="btn"
-href="https://drive.google.com/drive/folders/1flDGpC29rWFV7zafipSCW8njx-mQqjNK?usp=sharing"
-target="_blank">
-📂 مشاهدة جميع العروض
-</a>
+
   <div class="video-box">
     <iframe src="https://drive.google.com/file/d/1iMf2Uevs5F-wLeO3YOxOf5Ad21g55umj/preview"></iframe>
   </div>
-
-  <a class="btn"
-     href="https://drive.google.com/file/d/1iMf2Uevs5F-wLeO3YOxOf5Ad21g55umj/view?usp=sharing"
-     target="_blank">
-    مشاهدة الفيديو
-  </a>
 </div>
 
+<!-- DELIVERY -->
 <div class="card">
   <h2>التوصيل</h2>
   <p>خدمة توصيل سريعة داخل السالمية والمناطق القريبة.</p>
 </div>
 
+<!-- CONTACT -->
 <div class="card">
   <h2>تواصل معنا</h2>
   <p>رقم الواتساب: +965 97984011</p>
