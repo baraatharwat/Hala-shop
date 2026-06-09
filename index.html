@@ -9,18 +9,18 @@
 body{
   margin:0;
   font-family: system-ui;
-  background:#0b1220;
+  background:#0f172a;
   color:white;
 }
 
 header{
   background:linear-gradient(135deg,#16a34a,#22c55e);
   text-align:center;
-  padding:50px;
+  padding:40px;
 }
 
 .container{
-  max-width:800px;
+  max-width:900px;
   margin:auto;
   padding:20px;
 }
@@ -28,9 +28,8 @@ header{
 .card{
   background:#111827;
   padding:20px;
-  border-radius:16px;
+  border-radius:14px;
   text-align:center;
-  margin-top:15px;
 }
 
 a{
@@ -38,7 +37,7 @@ a{
   margin-top:10px;
   background:#22c55e;
   color:black;
-  padding:12px 16px;
+  padding:10px 14px;
   border-radius:10px;
   text-decoration:none;
   font-weight:bold;
@@ -50,38 +49,16 @@ a{
 
 <header>
   <h1>🛒 هلا شوب</h1>
-  <p>متجر بسيط</p>
 </header>
 
 <div class="container">
 
-<div class="card">
-  <h2>🥤 المشروبات</h2>
-  <a href="drinks.html">دخول</a>
-</div>
+  <div class="card">
+    <h3>🥤 المشروبات</h3>
+    <a href="drinks.html">دخول</a>
+  </div>
 
 </div>
-
-<script>
-// 🧹 auto-fix old broken carts
-let cart = JSON.parse(localStorage.getItem("cart") || "[]");
-
-cart = cart.map(i => ({
-  name: i.name || "item",
-  price: Number(i.price) || 0,
-  qty: Number(i.qty) || 1
-}));
-
-localStorage.setItem("cart", JSON.stringify(cart));
-
-let totalItems = cart.reduce((a,b)=>a+b.qty,0);
-let totalPrice = cart.reduce((a,b)=>a+(b.price*b.qty),0);
-
-document.body.insertAdjacentHTML("beforeend",
-`<div style="padding:20px;text-align:center">
-🛒 السلة: ${totalItems} | ${totalPrice.toFixed(3)} KD
-</div>`);
-</script>
 
 </body>
 </html>
