@@ -12,6 +12,7 @@ body{
   background: linear-gradient(135deg,#e8f5e9,#f1f8e9);
 }
 
+/* HEADER */
 header{
   background: linear-gradient(135deg,#1b5e20,#43a047);
   color:white;
@@ -19,25 +20,33 @@ header{
   padding:40px 20px;
 }
 
+header h1{
+  margin:0;
+  font-size:32px;
+}
+
+/* CONTAINER */
 section{
   max-width:900px;
   margin:auto;
   padding:20px;
 }
 
+/* CARD STYLE */
 .card{
   background:white;
   padding:20px;
   margin:15px 0;
   border-radius:16px;
   box-shadow:0 8px 20px rgba(0,0,0,0.12);
+  transition:0.3s;
 }
 
 .card:hover{
   transform:translateY(-3px);
-  transition:0.3s;
 }
 
+/* BUTTON */
 .btn{
   display:inline-block;
   background:#25D366;
@@ -49,14 +58,12 @@ section{
   margin-top:10px;
 }
 
-h2{ color:#2e7d32; }
-
-.ar{
-  text-align:right;
-  direction:rtl;
-  color:#555;
+/* TITLES */
+h2{
+  color:#2e7d32;
 }
 
+/* VIDEO RESPONSIVE */
 .video-box{
   position:relative;
   width:100%;
@@ -76,6 +83,7 @@ h2{ color:#2e7d32; }
   border:0;
 }
 
+/* FOOTER */
 footer{
   background:#1b5e20;
   color:white;
@@ -96,24 +104,26 @@ footer{
 
 <section>
 
+<!-- WELCOME -->
 <div class="card">
   <h2>Welcome</h2>
-  <p>Hala Shop is your neighborhood store in Salmiya Block 3.</p>
-  <p class="ar">هلا شوب هو متجرك القريب في السالمية قطعة 3.</p>
+  <p>Hala Shop is your neighborhood grocery store in Salmiya, Kuwait.</p>
 </div>
 
+<!-- PRODUCTS -->
 <div class="card">
   <h2>Products</h2>
   <ul>
-    <li>Drinks | مشروبات</li>
-    <li>Snacks & Sweets | حلويات</li>
-    <li>Bread & Bakery | مخبوزات</li>
-    <li>Dairy Products | ألبان</li>
-    <li>Household Items | أدوات منزلية</li>
-    <li>Personal Care | عناية شخصية</li>
+    <li>Drinks</li>
+    <li>Snacks & Sweets</li>
+    <li>Dairy Products</li>
+    <li>Bread & Bakery</li>
+    <li>Household Items</li>
+    <li>Personal Care</li>
   </ul>
 </div>
 
+<!-- OFFERS VIDEO -->
 <div class="card">
   <h2>🔥 Latest Offers</h2>
 
@@ -131,12 +141,13 @@ footer{
   </a>
 </div>
 
+<!-- DELIVERY -->
 <div class="card">
   <h2>Delivery</h2>
   <p>Fast delivery available in Salmiya.</p>
-  <p class="ar">خدمة توصيل سريعة في السالمية.</p>
 </div>
 
+<!-- CONTACT -->
 <div class="card">
   <h2>Contact Us</h2>
   <p>WhatsApp: +965 97984011</p>
