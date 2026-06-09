@@ -9,36 +9,92 @@
 body{
   margin:0;
   font-family: system-ui, Arial;
-  background:#0f172a;
+  background:linear-gradient(180deg,#0b1220,#0f172a);
   color:white;
 }
 
+/* HEADER */
 header{
   background:linear-gradient(135deg,#16a34a,#22c55e);
   text-align:center;
-  padding:50px 20px;
+  padding:60px 20px;
 }
 
+header h1{
+  margin:0;
+  font-size:42px;
+}
+
+header p{
+  margin-top:10px;
+  opacity:0.9;
+}
+
+/* CONTAINER */
 .container{
-  max-width:800px;
+  max-width:900px;
   margin:auto;
   padding:20px;
 }
 
-.card{
-  background:#111827;
-  padding:25px;
-  border-radius:16px;
-  text-align:center;
-  margin-top:20px;
+/* SECTION TITLE */
+h2{
+  color:#22c55e;
+  margin-bottom:10px;
 }
 
-.btn{
+/* CARDS GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+
+/* CARD */
+.card{
+  background:#111827;
+  padding:20px;
+  border-radius:16px;
+  text-align:center;
+  border:1px solid #1f2937;
+  transition:0.2s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+/* BUTTON */
+a{
   display:inline-block;
+  margin-top:10px;
   background:#22c55e;
   color:black;
-  padding:12px 18px;
+  padding:12px 16px;
   border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* INFO BOX */
+.info{
+  background:#111827;
+  padding:20px;
+  border-radius:16px;
+  margin-top:20px;
+  border:1px solid #1f2937;
+  text-align:center;
+}
+
+/* WHATSAPP FLOAT */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:14px 16px;
+  border-radius:50px;
   text-decoration:none;
   font-weight:bold;
 }
@@ -50,22 +106,51 @@ header{
 
 <header>
   <h1>🛒 هلا شوب</h1>
-  <p>بقالة إلكترونية</p>
+  <p>بقالة إلكترونية - توصيل سريع داخل الكويت</p>
 </header>
 
 <div class="container">
 
-<div class="card">
-  <h2>الأقسام</h2>
-  <a class="btn" href="drinks.html">🥤 المشروبات</a>
+<h2>الأقسام</h2>
+
+<div class="grid">
+
+  <div class="card">
+    <h3>🥤 المشروبات</h3>
+    <p>جميع أنواع المشروبات</p>
+    <a href="drinks.html">الدخول</a>
+  </div>
+
+  <div class="card">
+    <h3>🍫 الوجبات</h3>
+    <p>سناك وحلويات</p>
+    <a href="#">قريباً</a>
+  </div>
+
+  <div class="card">
+    <h3>🥛 الألبان</h3>
+    <p>حليب وأجبان</p>
+    <a href="#">قريباً</a>
+  </div>
+
 </div>
 
-<div class="card">
-  <h2>تواصل</h2>
-  <a class="btn" href="https://wa.me/96597984011">واتساب</a>
+<div class="info">
+  <h3>🚚 التوصيل</h3>
+  <p>نوصّل خلال وقت سريع داخل منطقتك</p>
+</div>
+
+<div class="info">
+  <h3>📞 تواصل معنا</h3>
+  <p>خدمة واتساب 24/7</p>
+  <a href="https://wa.me/96597984011">فتح واتساب</a>
 </div>
 
 </div>
+
+<a class="whatsapp" href="https://wa.me/96597984011">
+💬 واتساب
+</a>
 
 </body>
 </html>
