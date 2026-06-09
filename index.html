@@ -10,38 +10,75 @@ body{
   margin:0;
   font-family: system-ui, Arial;
   background:#0f172a;
-  color:white;
+  color:#e5e7eb;
 }
 
+/* HEADER */
 header{
   background:linear-gradient(135deg,#16a34a,#22c55e);
   text-align:center;
-  padding:50px;
+  padding:50px 20px;
+  color:white;
 }
 
+header h1{
+  margin:0;
+  font-size:40px;
+}
+
+/* CONTAINER */
 .container{
   max-width:900px;
   margin:auto;
   padding:20px;
 }
 
+/* CARD */
 .card{
   background:#111827;
-  padding:25px;
+  border:1px solid #1f2937;
+  padding:20px;
+  margin:15px 0;
   border-radius:16px;
   text-align:center;
-  margin-top:20px;
 }
 
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
+}
+
+/* BUTTON */
 a{
   display:inline-block;
   background:#22c55e;
   color:black;
-  padding:14px 20px;
+  padding:12px 18px;
   border-radius:10px;
   text-decoration:none;
   font-weight:bold;
-  margin-top:10px;
+}
+
+/* VIDEO */
+.video{
+  width:100%;
+  aspect-ratio:16/9;
+  border:none;
+  border-radius:12px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:14px 16px;
+  border-radius:50px;
+  text-decoration:none;
 }
 </style>
 
@@ -56,12 +93,45 @@ a{
 
 <div class="container">
 
+<!-- ABOUT -->
+<div class="card">
+  <h2>نبذة عنا</h2>
+  <p>نوفر جميع المواد الغذائية والمشروبات مع خدمة توصيل سريعة داخل السالمية.</p>
+</div>
+
+<!-- CATEGORIES -->
 <div class="card">
   <h2>الأقسام</h2>
-  <a href="drinks.html">المشروبات 🥤</a>
+
+  <div class="grid">
+    <a href="drinks.html">المشروبات 🥤</a>
+    <a href="#">الوجبات 🍫</a>
+    <a href="#">الألبان 🥛</a>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<div class="card">
+  <h2>العروض الحالية</h2>
+
+  <iframe class="video"
+    src="https://drive.google.com/file/d/1iMf2Uevs5F-wLeO3YOxOf5Ad21g55umj/preview">
+  </iframe>
+</div>
+
+<!-- CONTACT -->
+<div class="card">
+  <h2>تواصل معنا</h2>
+  <p>واتساب: +965 97984011</p>
+
+  <a href="https://wa.me/96597984011">اطلب الآن</a>
 </div>
 
 </div>
+
+<a class="whatsapp" href="https://wa.me/96597984011">
+💬
+</a>
 
 </body>
 </html>
