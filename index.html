@@ -7,52 +7,80 @@
 
 <style>
 body{
+  margin:0;
   font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f4f4f4;
-  line-height: 1.6;
+  background: linear-gradient(135deg,#e8f5e9,#f1f8e9);
 }
 
+/* HEADER */
 header{
-  background: #2e7d32;
-  color: white;
-  padding: 30px;
-  text-align: center;
+  background: linear-gradient(135deg,#1b5e20,#43a047);
+  color:white;
+  text-align:center;
+  padding:40px 20px;
 }
 
+header h1{
+  margin:0;
+  font-size:32px;
+}
+
+header p{
+  margin:5px 0;
+}
+
+/* CONTAINER */
 section{
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
+  max-width:900px;
+  margin:auto;
+  padding:20px;
 }
 
+/* CARDS */
 .card{
-  background: white;
-  padding: 20px;
-  margin: 15px 0;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background:white;
+  padding:20px;
+  margin:15px 0;
+  border-radius:16px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.1);
+  transition:0.3s;
 }
 
+.card:hover{
+  transform:translateY(-3px);
+}
+
+/* BUTTON */
 .btn{
-  display: inline-block;
-  background: #25D366;
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  border-radius: 8px;
+  display:inline-block;
+  background:#25D366;
+  color:white;
+  padding:12px 18px;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:bold;
+  margin-top:10px;
 }
 
-footer{
-  background: #2e7d32;
-  color: white;
-  text-align: center;
-  padding: 15px;
+/* TITLES */
+h2{
+  color:#2e7d32;
 }
 
+/* ARABIC */
 .ar{
-  text-align: right;
-  direction: rtl;
+  text-align:right;
+  direction:rtl;
+  color:#555;
+}
+
+/* FOOTER */
+footer{
+  background:#1b5e20;
+  color:white;
+  text-align:center;
+  padding:15px;
+  margin-top:20px;
 }
 </style>
 
@@ -61,7 +89,7 @@ footer{
 <body>
 
 <header>
-  <h1>Hala Shop | هلا شوب</h1>
+  <h1>🛒 Hala Shop | هلا شوب</h1>
   <p>Open 24 Hours • مفتوح 24 ساعة</p>
   <p>Everything You Need, Anytime You Need It!</p>
 </header>
@@ -75,7 +103,7 @@ footer{
 </div>
 
 <div class="card">
-  <h2>Products | المنتجات</h2>
+  <h2>Products</h2>
   <ul>
     <li>Drinks | مشروبات</li>
     <li>Snacks & Sweets | حلويات</li>
@@ -89,28 +117,35 @@ footer{
 <div class="card">
   <h2>🔥 Latest Offers</h2>
 
-  <iframe
-    src="https://drive.google.com/file/d/1iMf2Uevs5F-wLeO3YOxOf5Ad21g55umj/preview"
-    width="100%"
-    height="300"
-    allow="autoplay">
-  </iframe>
+  <p>Watch our latest offers video 👇</p>
+
+  <a class="btn"
+     href="https://drive.google.com/file/d/1iMf2Uevs5F-wLeO3YOxOf5Ad21g55umj/view?usp=sharing"
+     target="_blank">
+    ▶ Open Offers Video
+  </a>
 </div>
 
 <div class="card">
-  <h2>Delivery | التوصيل</h2>
-  <p>Fast delivery available.</p>
-  <p class="ar">خدمة توصيل سريعة.</p>
+  <h2>Delivery</h2>
+  <p>Fast delivery available in Salmiya.</p>
+  <p class="ar">خدمة توصيل سريعة في السالمية.</p>
 </div>
 
 <div class="card">
-  <h2>Special Offers | العروض</h2>
-  <p>Check back for weekly deals.</p>
-  <p class="ar">تابع العروض الأسبوعية.</p>
-</div>
-
-<div class="card">
-  <h2>Contact Us | تواصل معنا</h2>
+  <h2>Contact Us</h2>
   <p>WhatsApp: +965 97984011</p>
 
-  <a class="btn" href="https://wa
+  <a class="btn" href="https://wa.me/96597984011">
+    Order on WhatsApp
+  </a>
+</div>
+
+</section>
+
+<footer>
+  © 2026 Hala Shop
+</footer>
+
+</body>
+</html>
