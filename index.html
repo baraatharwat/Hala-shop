@@ -8,77 +8,56 @@
 <style>
 body{
   margin:0;
-  font-family: system-ui, Arial;
-  background:#0f172a;
-  color:#e5e7eb;
-}
-
-/* HEADER */
-header{
-  background:linear-gradient(135deg,#16a34a,#22c55e);
-  text-align:center;
-  padding:50px 20px;
+  font-family: system-ui;
+  background:#0b1220;
   color:white;
 }
 
-header h1{
-  margin:0;
-  font-size:40px;
+header{
+  background:linear-gradient(135deg,#16a34a,#22c55e);
+  text-align:center;
+  padding:50px;
 }
 
-/* CONTAINER */
 .container{
-  max-width:900px;
+  max-width:1000px;
   margin:auto;
   padding:20px;
 }
 
-/* CARD */
-.card{
-  background:#111827;
-  border:1px solid #1f2937;
-  padding:20px;
-  margin:15px 0;
-  border-radius:16px;
-  text-align:center;
-}
+h2{color:#22c55e}
 
-/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:10px;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
 }
 
-/* BUTTON */
-a{
-  display:inline-block;
+.card{
+  background:#111827;
+  border-radius:16px;
+  overflow:hidden;
+  text-align:center;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:scale(1.03);
+}
+
+.card img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+}
+
+.card a{
+  display:block;
+  padding:12px;
   background:#22c55e;
   color:black;
-  padding:12px 18px;
-  border-radius:10px;
   text-decoration:none;
   font-weight:bold;
-}
-
-/* VIDEO */
-.video{
-  width:100%;
-  aspect-ratio:16/9;
-  border:none;
-  border-radius:12px;
-}
-
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:14px 16px;
-  border-radius:50px;
-  text-decoration:none;
 }
 </style>
 
@@ -88,50 +67,33 @@ a{
 
 <header>
   <h1>🛒 هلا شوب</h1>
-  <p>بقالة 24 ساعة - السالمية الكويت</p>
+  <p>متجر إلكتروني - توصيل سريع</p>
 </header>
 
 <div class="container">
 
-<!-- ABOUT -->
-<div class="card">
-  <h2>نبذة عنا</h2>
-  <p>نوفر جميع المواد الغذائية والمشروبات مع خدمة توصيل سريعة داخل السالمية.</p>
-</div>
+<h2>الأقسام</h2>
 
-<!-- CATEGORIES -->
-<div class="card">
-  <h2>الأقسام</h2>
+<div class="grid">
 
-  <div class="grid">
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1604908177225-1c2f5b8c2b3a" />
     <a href="drinks.html">المشروبات 🥤</a>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1605478036366-7f6f0f0d0a6b" />
     <a href="#">الوجبات 🍫</a>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1580915411954-282cb1b0d780" />
     <a href="#">الألبان 🥛</a>
   </div>
-</div>
-
-<!-- VIDEO -->
-<div class="card">
-  <h2>العروض الحالية</h2>
-
-  <iframe class="video"
-    src="https://drive.google.com/file/d/1iMf2Uevs5F-wLeO3YOxOf5Ad21g55umj/preview">
-  </iframe>
-</div>
-
-<!-- CONTACT -->
-<div class="card">
-  <h2>تواصل معنا</h2>
-  <p>واتساب: +965 97984011</p>
-
-  <a href="https://wa.me/96597984011">اطلب الآن</a>
-</div>
 
 </div>
 
-<a class="whatsapp" href="https://wa.me/96597984011">
-💬
-</a>
+</div>
 
 </body>
 </html>
