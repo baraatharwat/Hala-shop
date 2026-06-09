@@ -9,29 +9,28 @@
 body{
   margin:0;
   font-family: system-ui, Arial, sans-serif;
-  background:#0f172a;
+  background:#0b1220;
   color:#e5e7eb;
 }
 
-/* TOP HEADER */
+/* HEADER */
 header{
   background: linear-gradient(135deg,#16a34a,#22c55e);
   text-align:center;
-  padding:50px 20px;
+  padding:45px 20px;
   color:white;
 }
 
 header h1{
   margin:0;
-  font-size:36px;
+  font-size:34px;
 }
 
 header p{
-  margin-top:8px;
-  opacity:0.95;
+  margin-top:6px;
 }
 
-/* MAIN */
+/* SECTION */
 section{
   max-width:900px;
   margin:auto;
@@ -48,15 +47,25 @@ section{
   box-shadow:0 10px 25px rgba(0,0,0,0.35);
 }
 
-.card:hover{
-  transform:translateY(-3px);
-  transition:0.3s;
-}
-
 /* TITLES */
 h2{
   color:#22c55e;
   margin-top:0;
+}
+
+/* PRODUCT GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:10px;
+}
+
+.item{
+  background:#0b1220;
+  border:1px solid #1f2937;
+  padding:12px;
+  border-radius:12px;
+  text-align:center;
 }
 
 /* BUTTON */
@@ -68,7 +77,7 @@ h2{
   border-radius:10px;
   font-weight:700;
   text-decoration:none;
-  margin-top:12px;
+  margin-top:10px;
 }
 
 /* VIDEO */
@@ -79,7 +88,6 @@ h2{
   border-radius:14px;
   overflow:hidden;
   border:1px solid #1f2937;
-  margin-top:10px;
 }
 
 .video-box iframe{
@@ -91,19 +99,28 @@ h2{
   border:0;
 }
 
-/* PRODUCT GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:10px;
+/* FLOATING WHATSAPP */
+.whatsapp-float{
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  background:#25D366;
+  color:white;
+  padding:14px 16px;
+  border-radius:50px;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
-.item{
-  background:#0b1220;
-  padding:10px;
-  border-radius:10px;
-  border:1px solid #1f2937;
+/* OFFER BANNER */
+.banner{
+  background:linear-gradient(135deg,#ef4444,#f97316);
+  padding:15px;
+  border-radius:12px;
   text-align:center;
+  font-weight:700;
+  margin-bottom:15px;
 }
 
 /* FOOTER */
@@ -122,28 +139,32 @@ footer{
 
 <header>
   <h1>🛒 Hala Shop | هلا شوب</h1>
-  <p>Open 24/7 • Delivery Available • Every Thing You Need</p>
+  <p>Open 24/7 • Fast Delivery • Salmiya Kuwait</p>
 </header>
 
 <section>
 
+<!-- BANNER -->
+<div class="banner">
+🔥 SPECIAL OFFERS AVAILABLE NOW 🔥
+</div>
+
 <!-- WELCOME -->
 <div class="card">
   <h2>Welcome</h2>
-  <p>Your premium neighborhood grocery store in Salmiya, Kuwait.</p>
+  <p>Your trusted neighborhood grocery store in Salmiya.</p>
 </div>
 
 <!-- PRODUCTS -->
 <div class="card">
   <h2>Products</h2>
-
   <div class="grid">
     <div class="item">🥤 Drinks</div>
     <div class="item">🍫 Snacks</div>
     <div class="item">🥛 Dairy</div>
     <div class="item">🍞 Bakery</div>
-    <div class="item">🏠 Home Items</div>
-    <div class="item">🧴 Personal Care</div>
+    <div class="item">🏠 Home</div>
+    <div class="item">🧴 Care</div>
   </div>
 </div>
 
@@ -175,16 +196,17 @@ footer{
 <div class="card">
   <h2>Contact</h2>
   <p>WhatsApp: +965 97984011</p>
-
-  <a class="btn" href="https://wa.me/96597984011">
-    Order Now
-  </a>
 </div>
 
 </section>
 
+<!-- WHATSAPP FLOAT BUTTON -->
+<a class="whatsapp-float" href="https://wa.me/96597984011">
+💬 Order
+</a>
+
 <footer>
-  © 2026 Hala Shop • Built with care
+  © 2026 Hala Shop
 </footer>
 
 </body>
