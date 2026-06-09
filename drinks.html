@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المشروبات</title>
+<title>المشروبات - هلا شوب</title>
 
 <style>
 body{
   margin:0;
-  font-family: system-ui;
+  font-family: system-ui, Arial;
   background:#0b1220;
   color:white;
 }
@@ -44,7 +44,11 @@ header{
   object-fit:cover;
 }
 
-.product button{
+.product p{
+  margin:10px 0;
+}
+
+button{
   width:100%;
   padding:10px;
   background:#22c55e;
@@ -53,11 +57,29 @@ header{
   cursor:pointer;
 }
 
+/* CART */
 .cart{
   background:#1f2937;
   padding:15px;
-  margin-top:20px;
   border-radius:12px;
+  margin-top:20px;
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  margin:5px 0;
+}
+
+/* WHATSAPP BUTTON */
+.checkout{
+  margin-top:10px;
+  display:inline-block;
+  background:#25D366;
+  color:white;
+  padding:10px 14px;
+  border-radius:10px;
+  text-decoration:none;
 }
 </style>
 </head>
@@ -73,31 +95,38 @@ header{
 <div class="grid">
 
   <div class="product">
-    <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97">
+    <img src="https://images.unsplash.com/photo-1622483767028-7b4c7a0c3c34?w=600">
     <p>كينزا - 0.250 KD</p>
-    <button onclick="add('كينزا',0.250)">أضف</button>
+    <button onclick="add('كينزا',0.250)">أضف للسلة</button>
   </div>
 
   <div class="product">
-    <img src="https://images.unsplash.com/photo-1625772299848-391b3b8c2f8a">
+    <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?w=600">
     <p>فريز - 0.300 KD</p>
-    <button onclick="add('فريز',0.300)">أضف</button>
+    <button onclick="add('فريز',0.300)">أضف للسلة</button>
   </div>
 
   <div class="product">
-    <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba3">
+    <img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?w=600">
     <p>مياه - 0.100 KD</p>
-    <button onclick="add('مياه',0.100)">أضف</button>
+    <button onclick="add('مياه',0.100)">أضف للسلة</button>
+  </div>
+
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1625772299848-3c2f8c7c2b5a?w=600">
+    <p>بيبسي - 0.250 KD</p>
+    <button onclick="add('بيبسي',0.250)">أضف للسلة</button>
   </div>
 
 </div>
 
+<!-- CART -->
 <div class="cart">
-<h3>🛒 السلة</h3>
-<div id="items"></div>
-<p>المجموع: <span id="total">0</span> KD</p>
+  <h3>🛒 السلة</h3>
+  <div id="items"></div>
+  <p>المجموع: <span id="total">0.000</span> KD</p>
 
-<button onclick="checkout()">إرسال واتساب</button>
+  <a class="checkout" onclick="checkout()">إرسال الطلب واتساب</a>
 </div>
 
 <br>
@@ -106,29 +135,39 @@ header{
 </div>
 
 <script>
-let cart=[];
-let total=0;
+let cart = [];
+let total = 0;
 
-function add(name,price){
-  cart.push({name,price});
-  total+=price;
+function add(name, price){
+  cart.push({name, price});
+  total += price;
   render();
 }
 
 function render(){
   document.getElementById("items").innerHTML =
-  cart.map(i=>`<div>${i.name} - ${i.price}</div>`).join("");
-  document.getElementById("total").innerText=total.toFixed(3);
+    cart.map(i => `<div class="cart-item">
+      <span>${i.name}</span>
+      <span>${i.price.toFixed(3)} KD</span>
+    </div>`).join("");
+
+  document.getElementById("total").innerText = total.toFixed(3);
 }
 
 function checkout(){
-  let msg="طلب جديد:%0A";
-  cart.forEach(i=>{
-    msg+=`- ${i.name} ${i.price} KD%0A`;
-  });
-  msg+=`%0Aالمجموع: ${total.toFixed(3)} KD`;
+  if(cart.length === 0){
+    alert("السلة فارغة");
+    return;
+  }
 
-  window.open("https://wa.me/96597984011?text="+encodeURIComponent(msg));
+  let msg = "طلب جديد:%0A";
+  cart.forEach(i=>{
+    msg += `- ${i.name} ${i.price} KD%0A`;
+  });
+
+  msg += `%0Aالمجموع: ${total.toFixed(3)} KD`;
+
+  window.open("https://wa.me/96597984011?text=" + encodeURIComponent(msg));
 }
 </script>
 
