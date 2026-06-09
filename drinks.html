@@ -8,7 +8,7 @@
 <style>
 body{
   margin:0;
-  font-family: system-ui;
+  font-family: system-ui, Arial;
   background:#0f172a;
   color:white;
 }
@@ -16,7 +16,7 @@ body{
 header{
   background:#16a34a;
   text-align:center;
-  padding:30px;
+  padding:40px;
 }
 
 .container{
@@ -25,42 +25,31 @@ header{
   padding:20px;
 }
 
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
+}
+
 .item{
   background:#111827;
-  padding:15px;
+  padding:18px;
   border-radius:12px;
-  margin:10px 0;
   text-align:center;
 }
 
-button{
+.btn{
+  display:inline-block;
   background:#22c55e;
-  border:none;
-  padding:8px 12px;
+  color:black;
+  padding:10px 12px;
   border-radius:8px;
-  font-weight:bold;
-  margin-top:8px;
-  cursor:pointer;
-}
-
-.cart{
-  background:#1f2937;
-  padding:15px;
-  border-radius:12px;
-  margin-top:20px;
-}
-
-.cart-item{
-  display:flex;
-  justify-content:space-between;
-  margin:5px 0;
-}
-
-.back{
-  color:#22c55e;
   text-decoration:none;
+  margin-top:10px;
+  font-weight:bold;
 }
 </style>
+
 </head>
 
 <body>
@@ -71,112 +60,33 @@ button{
 
 <div class="container">
 
-<div class="item">
-  كينزا - 0.250 KD<br>
-  <button onclick="add('كينزا',0.250)">إضافة</button>
-</div>
+<div class="grid">
 
-<div class="item">
-  فريز - 0.300 KD<br>
-  <button onclick="add('فريز',0.300)">إضافة</button>
-</div>
+  <div class="item">
+    كينزا<br>
+    0.250 د.ك<br>
+    <a class="btn" href="https://wa.me/96597984011">طلب</a>
+  </div>
 
-<div class="item">
-  مياه - 0.100 KD<br>
-  <button onclick="add('مياه',0.100)">إضافة</button>
-</div>
+  <div class="item">
+    فريز<br>
+    0.300 د.ك<br>
+    <a class="btn" href="https://wa.me/96597984011">طلب</a>
+  </div>
 
-<div class="cart">
-  <h3>🛒 السلة</h3>
-  <div id="cart"></div>
-  <p>المجموع: <span id="total">0.000</span> KD</p>
+  <div class="item">
+    مياه<br>
+    0.100 د.ك<br>
+    <a class="btn" href="https://wa.me/96597984011">طلب</a>
+  </div>
 
-  <button onclick="checkout()">إرسال واتساب</button>
 </div>
 
 <br>
-<a class="back" href="index.html">⬅ رجوع</a>
+
+<a class="btn" href="index.html">⬅ رجوع</a>
 
 </div>
-
-<script>
-
-// 🧠 SAFE CART (NO NaN EVER)
-let cart = JSON.parse(localStorage.getItem("cart") || "[]");
-
-cart = cart.map(i => ({
-  name: i.name || "item",
-  price: Number(i.price) || 0,
-  qty: Number(i.qty) || 1
-}));
-
-function save(){
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-// ➕ ADD ITEM (GROUPED)
-function add(name, price){
-
-  let item = cart.find(i => i.name === name);
-
-  if(item){
-    item.qty = Number(item.qty) + 1;
-  } else {
-    cart.push({name, price:Number(price), qty:1});
-  }
-
-  save();
-  render();
-}
-
-// 🛒 RENDER CART
-function render(){
-
-  let html = "";
-  let total = 0;
-
-  cart.forEach(i=>{
-    let t = i.price * i.qty;
-    total += t;
-
-    html += `
-      <div class="cart-item">
-        <span>${i.name} × ${i.qty}</span>
-        <span>${t.toFixed(3)} KD</span>
-      </div>
-    `;
-  });
-
-  document.getElementById("cart").innerHTML = html;
-  document.getElementById("total").innerText = total.toFixed(3);
-}
-
-// 📲 CHECKOUT (CLEAN WHATSAPP)
-function checkout(){
-
-  if(cart.length === 0){
-    alert("السلة فارغة");
-    return;
-  }
-
-  let msg = "🛒 طلب جديد:%0A%0A";
-  let total = 0;
-
-  cart.forEach(i=>{
-    let t = i.price * i.qty;
-    total += t;
-
-    msg += `- ${i.name} × ${i.qty} = ${t.toFixed(3)} KD%0A`;
-  });
-
-  msg += `%0A💰 المجموع: ${total.toFixed(3)} KD`;
-
-  window.open("https://wa.me/96597984011?text=" + encodeURIComponent(msg));
-}
-
-render();
-
-</script>
 
 </body>
 </html>
