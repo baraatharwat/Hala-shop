@@ -1,14 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hala Shop | هلا شوب</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#e8f5e9,#f1f8e9);
+}
+
+/* HEADER */
+header{
+  background: linear-gradient(135deg,#1b5e20,#43a047);
+  color:white;
+  text-align:center;
+  padding:40px 20px;
+}
+
+header h1{
+  margin:0;
+  font-size:34px;
+}
+
+header p{
+  margin:5px 0;
+}
+
+/* MAIN */
+section{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+
+/* CARDS */
+.card{
+  background:white;
+  padding:20px;
+  margin:15px 0;
+  border-radius:16px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.12);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  background:#25D366;
+  color:white;
+  padding:12px 18px;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+/* TITLES */
+h2{
+  color:#2e7d32;
+}
+
+/* ARABIC */
+.ar{
+  text-align:right;
+  direction:rtl;
+  color:#555;
+}
+
+/* VIDEO WRAPPER (HORIZONTAL FIX) */
+.video-box{
+  position:relative;
+  width:100%;
+  padding-top:56.25%;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  margin-top:10px;
+}
+
+.video-box iframe{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* FOOTER */
+footer{
+  background:#1b5e20;
+  color:white;
+  text-align:center;
+  padding:15px;
+  margin-top:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <h1>🛒 Hala Shop | هلا شوب</h1>
+  <p>Open 24 Hours • مفتوح 24 ساعة</p>
+  <p>Everything You Need, Anytime You Need It!</p>
+</header>
+
+<section>
+
+<div class="card">
+  <h2>Welcome</h2>
+  <p>Hala Shop is your neighborhood store in Salmiya Block 3.</p>
+  <p class="ar">هلا شوب هو متجرك القريب في السالمية قطعة 3.</p>
+</div>
+
+<div class="card">
+  <h2>Products</h2>
+  <ul>
+    <li>Drinks | مشروبات</li>
+    <li>Snacks & Sweets | حلويات</li>
+    <li>Dairy Products | ألبان</li>
+    <li>Bread & Bakery | مخبوزات</li>
+    <li>Household Items | أدوات منزلية</li>
+    <li>Personal Care | عناية شخصية</li>
+  </ul>
+</div>
+
 <div class="card">
   <h2>🔥 Latest Offers</h2>
 
-  <p>Check today’s deals and discounts 👇</p>
+  <p>Watch today’s deals 👇</p>
 
-  <div style="border-radius:16px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,0.15); margin-top:10px;">
+  <div class="video-box">
     <iframe
       src="https://drive.google.com/file/d/1iMf2Uevs5F-wLeO3YOxOf5Ad21g55umj/preview"
-      width="100%"
-      height="450"
-      style="border:0;"
       allow="autoplay">
     </iframe>
   </div>
@@ -19,3 +152,27 @@
     ▶ Open Full Video
   </a>
 </div>
+
+<div class="card">
+  <h2>Delivery</h2>
+  <p>Fast delivery available in Salmiya.</p>
+  <p class="ar">خدمة توصيل سريعة في السالمية.</p>
+</div>
+
+<div class="card">
+  <h2>Contact Us</h2>
+  <p>WhatsApp: +965 97984011</p>
+
+  <a class="btn" href="https://wa.me/96597984011">
+    Order on WhatsApp
+  </a>
+</div>
+
+</section>
+
+<footer>
+  © 2026 Hala Shop
+</footer>
+
+</body>
+</html>
