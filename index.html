@@ -9,7 +9,7 @@
 body{
   margin:0;
   font-family: system-ui, Arial, sans-serif;
-  background:#0b1220;
+  background:#0f172a;
   color:#e5e7eb;
 }
 
@@ -17,22 +17,22 @@ body{
 header{
   background: linear-gradient(135deg,#16a34a,#22c55e);
   text-align:center;
-  padding:45px 20px;
+  padding:50px 20px;
   color:white;
 }
 
 header h1{
   margin:0;
-  font-size:36px;
+  font-size:40px;
 }
 
 header p{
-  margin-top:8px;
+  margin-top:10px;
   font-size:16px;
 }
 
-/* SECTION */
-section{
+/* CONTAINER */
+.container{
   max-width:900px;
   margin:auto;
   padding:20px;
@@ -45,9 +45,9 @@ section{
   padding:20px;
   margin:15px 0;
   border-radius:16px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.35);
 }
 
+/* TITLES */
 h2{
   color:#22c55e;
   margin-top:0;
@@ -61,30 +61,19 @@ h2{
 }
 
 .item{
-  background:#0b1220;
+  background:#0f172a;
   border:1px solid #1f2937;
   padding:12px;
-  border-radius:12px;
+  border-radius:10px;
   text-align:center;
 }
 
 /* VIDEO */
-.video-box{
-  position:relative;
+.video{
   width:100%;
-  padding-top:56.25%;
-  border-radius:14px;
-  overflow:hidden;
-  border:1px solid #1f2937;
-}
-
-.video-box iframe{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  border:0;
+  aspect-ratio:16/9;
+  border:none;
+  border-radius:12px;
 }
 
 /* BUTTON */
@@ -94,7 +83,7 @@ h2{
   color:black;
   padding:12px 18px;
   border-radius:10px;
-  font-weight:700;
+  font-weight:bold;
   text-decoration:none;
   margin-top:10px;
 }
@@ -102,23 +91,23 @@ h2{
 /* WHATSAPP */
 .whatsapp{
   position:fixed;
-  bottom:18px;
-  right:18px;
+  bottom:20px;
+  right:20px;
   background:#25D366;
   color:white;
   padding:14px 16px;
   border-radius:50px;
-  font-weight:700;
   text-decoration:none;
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  font-weight:bold;
 }
 
 /* FOOTER */
 footer{
   text-align:center;
   padding:20px;
-  background:#0b1220;
   border-top:1px solid #1f2937;
+  margin-top:20px;
+  color:#9ca3af;
 }
 </style>
 
@@ -127,44 +116,45 @@ footer{
 <body>
 
 <header>
-  <h1>هلا شوب 🛒</h1>
-  <p>متجر بقالة يعمل على مدار الساعة في السالمية - الكويت</p>
+  <h1>🛒 هلا شوب</h1>
+  <p>بقالة تعمل على مدار 24 ساعة - السالمية، الكويت</p>
 </header>
 
-<section>
+<div class="container">
 
 <!-- ABOUT -->
 <div class="card">
   <h2>نبذة عنا</h2>
-  <p>نقدم جميع المواد الغذائية والاحتياجات اليومية مع خدمة توصيل سريعة داخل السالمية.</p>
+  <p>نقدم جميع المواد الغذائية والاحتياجات اليومية مع خدمة توصيل سريعة في السالمية.</p>
 </div>
 
 <!-- PRODUCTS -->
 <div class="card">
   <h2>المنتجات</h2>
   <div class="grid">
-    <div class="item">المشروبات</div>
-    <div class="item">الوجبات الخفيفة</div>
-    <div class="item">الألبان</div>
-    <div class="item">المخبوزات</div>
-    <div class="item">المنظفات</div>
-    <div class="item">العناية الشخصية</div>
+    <div class="item">مشروبات</div>
+    <div class="item">وجبات خفيفة</div>
+    <div class="item">ألبان</div>
+    <div class="item">مخبوزات</div>
+    <div class="item">منظفات</div>
+    <div class="item">عناية شخصية</div>
   </div>
 </div>
 
-<!-- OFFERS VIDEO -->
+<!-- OFFERS -->
 <div class="card">
   <h2>العروض الحالية</h2>
 
-  <div class="video-box">
-    <iframe src="https://drive.google.com/file/d/1iMf2Uevs5F-wLeO3YOxOf5Ad21g55umj/preview"></iframe>
-  </div>
+  <iframe class="video"
+  src="https://drive.google.com/file/d/1KKTUGX8f90z9-IlwmJpUY7z6H6YBjitN/preview"
+  allow="autoplay">
+  </iframe>
 </div>
 
 <!-- DELIVERY -->
 <div class="card">
   <h2>التوصيل</h2>
-  <p>خدمة توصيل سريعة داخل السالمية والمناطق القريبة.</p>
+  <p>توصيل سريع داخل السالمية والمناطق القريبة.</p>
 </div>
 
 <!-- CONTACT -->
@@ -177,14 +167,14 @@ footer{
   </a>
 </div>
 
-</section>
+</div>
 
 <a class="whatsapp" href="https://wa.me/96597984011">
 💬 واتساب
 </a>
 
 <footer>
-  © هلا شوب - جميع الحقوق محفوظة
+© هلا شوب - جميع الحقوق محفوظة
 </footer>
 
 </body>
