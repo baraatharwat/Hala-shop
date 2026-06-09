@@ -13,82 +13,32 @@ body{
   color:#e5e7eb;
 }
 
-/* HEADER */
 header{
   background:linear-gradient(135deg,#16a34a,#22c55e);
   text-align:center;
-  padding:50px 20px;
+  padding:50px;
   color:white;
 }
 
-header h1{
-  margin:0;
-  font-size:40px;
-}
-
-/* CONTAINER */
 .container{
   max-width:900px;
   margin:auto;
   padding:20px;
 }
 
-/* CARD */
 .card{
   background:#111827;
-  border:1px solid #1f2937;
   padding:20px;
-  margin:15px 0;
   border-radius:16px;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:10px;
-}
-
-.item{
-  display:block;
-  text-decoration:none;
-  background:#0f172a;
-  border:1px solid #1f2937;
-  padding:14px;
-  border-radius:12px;
   text-align:center;
-  color:white;
-  font-weight:bold;
 }
 
-/* VIDEO */
-.video{
-  width:100%;
-  aspect-ratio:16/9;
-  border:none;
-  border-radius:12px;
-}
-
-/* BUTTON */
-.btn{
+a{
   display:inline-block;
   background:#22c55e;
   color:black;
   padding:12px 18px;
   border-radius:10px;
-  font-weight:bold;
-  text-decoration:none;
-}
-
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:14px 16px;
-  border-radius:50px;
   text-decoration:none;
   font-weight:bold;
 }
@@ -104,73 +54,15 @@ header h1{
 
 <div class="container">
 
-<!-- HOME -->
-<div class="card" id="home">
+<div class="card">
   <h2>الأقسام</h2>
 
-  <div class="grid">
-    <a class="item" href="#drinks">المشروبات 🥤</a>
-    <a class="item" href="#snacks">الوجبات 🍫</a>
-    <a class="item" href="#dairy">الألبان 🥛</a>
-  </div>
-</div>
-
-<!-- DRINKS PAGE -->
-<div class="card" id="drinks">
-  <h2>المشروبات 🥤</h2>
-
-  <div class="grid">
-
-    <a class="item" href="#kinza">
-      كينزا
-    </a>
-
-    <a class="item" href="#freez">
-      فريز
-    </a>
-
-    <a class="item" href="#water">
-      مياه
-    </a>
-
-  </div>
-</div>
-
-<!-- KINZA PAGE -->
-<div class="card" id="kinza">
-  <h2>كينزا 🥤</h2>
-  <p>السعر: 0.250 د.ك</p>
-  <a class="btn" href="https://wa.me/96597984011">اطلب الآن</a>
-</div>
-
-<!-- FREEZ PAGE -->
-<div class="card" id="freez">
-  <h2>فريز 🧊</h2>
-  <p>السعر: 0.300 د.ك</p>
-  <a class="btn" href="https://wa.me/96597984011">اطلب الآن</a>
-</div>
-
-<!-- WATER PAGE -->
-<div class="card" id="water">
-  <h2>مياه 💧</h2>
-  <p>السعر: 0.100 د.ك</p>
-  <a class="btn" href="https://wa.me/96597984011">اطلب الآن</a>
-</div>
-
-<!-- OFFERS VIDEO -->
-<div class="card">
-  <h2>العروض الحالية</h2>
-
-  <iframe class="video"
-    src="https://drive.google.com/file/d/1iMf2Uevs5F-wLeO3YOxOf5Ad21g55umj/preview">
-  </iframe>
-</div>
+  <!-- THIS OPENS NEW PAGE -->
+  <a href="drinks.html">المشروبات 🥤</a>
 
 </div>
 
-<a class="whatsapp" href="https://wa.me/96597984011">
-💬 واتساب
-</a>
+</div>
 
 </body>
 </html>
