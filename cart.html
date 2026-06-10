@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>السلة</title>
+
+<style>
+body{background:#0a0a0a;color:white;font-family:Arial;margin:0}
+header{background:#111;padding:20px;text-align:center}
+.box{padding:20px}
+button{background:#22c55e;border:none;padding:12px;color:white;border-radius:8px}
+</style>
+</head>
+
+<body>
+
+<header><h1>🛒 السلة</h1></header>
+
+<div class="box" id="items"></div>
+
+<button onclick="send()">إرسال الطلب واتساب</button>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("halaCart")) || {};
+
+function show(){
+let box = document.getElementById("items");
+box.innerHTML = "";
+for(let i in cart){
+box.innerHTML += `<p>${i} × ${cart[i]}</p>`;
+}
+}
+show();
+
+function send(){
+let msg = "طلب جديد من هلا شوب\n\n";
+
+for(let i in cart){
+msg += i + " × " + cart[i] + "\n";
+}
+
+window.open("https://wa.me/96597984011?text=" + encodeURIComponent(msg));
+}
+</script>
+
+</body>
+</html>
