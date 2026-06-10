@@ -1,1 +1,171 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الخضروات - هلا شوب</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f5f5f5;
+}
+
+header{
+background:#16a34a;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+.back{
+display:inline-block;
+margin:15px;
+background:#16a34a;
+color:white;
+padding:10px 15px;
+border-radius:8px;
+text-decoration:none;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:20px;
+}
+
+.product{
+background:white;
+padding:15px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.product img{
+width:120px;
+height:120px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.controls{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+margin-top:10px;
+}
+
+button{
+width:35px;
+height:35px;
+font-size:18px;
+border:none;
+border-radius:8px;
+background:#16a34a;
+color:white;
+cursor:pointer;
+}
+
+.cart{
+position:fixed;
+top:20px;
+left:20px;
+background:#16a34a;
+color:white;
+padding:10px 15px;
+border-radius:10px;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="cart">
+🛒 <span id="cart">0</span>
+</div>
+
+<header>
+<h1>🥬 الخضروات</h1>
+</header>
+
+<a class="back" href="index.html">⬅ العودة للرئيسية</a>
+
+<div class="products">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=300">
+<h3>طماطم</h3>
+<p>0.300 KD</p>
+<div class="controls">
+<button onclick="minus('v1')">-</button>
+<span id="v1">0</span>
+<button onclick="plus('v1')">+</button>
+</div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?w=300">
+<h3>خيار</h3>
+<p>0.250 KD</p>
+<div class="controls">
+<button onclick="minus('v2')">-</button>
+<span id="v2">0</span>
+<button onclick="plus('v2')">+</button>
+</div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=300">
+<h3>بطاطس</h3>
+<p>0.200 KD</p>
+<div class="controls">
+<button onclick="minus('v3')">-</button>
+<span id="v3">0</span>
+<button onclick="plus('v3')">+</button>
+</div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=300">
+<h3>جزر</h3>
+<p>0.250 KD</p>
+<div class="controls">
+<button onclick="minus('v4')">-</button>
+<span id="v4">0</span>
+<button onclick="plus('v4')">+</button>
+</div>
+</div>
+
+</div>
+
+<script>
+let total=0;
+
+function plus(id){
+let x=document.getElementById(id);
+x.innerText=parseInt(x.innerText)+1;
+total++;
+document.getElementById("cart").innerText=total;
+}
+
+function minus(id){
+let x=document.getElementById(id);
+
+if(parseInt(x.innerText)>0){
+x.innerText=parseInt(x.innerText)-1;
+total--;
+document.getElementById("cart").innerText=total;
+}
+}
+</script>
+
+</body>
+</html>
+```
 
