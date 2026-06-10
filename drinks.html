@@ -240,7 +240,43 @@ el.innerText = total;
 
 update();
 </script>
+<script>
+function getCart(){
+return JSON.parse(localStorage.getItem("halaCart")) || {};
+}
 
+function saveCart(cart){
+localStorage.setItem("halaCart", JSON.stringify(cart));
+}
+
+function add(item){
+
+let cart = getCart();
+
+cart[item] = (cart[item] || 0) + 1;
+
+saveCart(cart);
+
+updateUI();
+}
+
+function updateUI(){
+
+let cart = getCart();
+
+let total = 0;
+
+for(let i in cart){
+total += cart[i];
+}
+
+document.getElementById("cartCount").innerText = total;
+
+}
+
+// run on load
+updateUI();
+</script>
 </body>
 </html>
 ```
