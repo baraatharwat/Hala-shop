@@ -144,23 +144,63 @@ font-weight:bold;
 </div>
 
 <script>
+```javascript
 let total=0;
 
-function plus(id){
-let x=document.getElementById(id);
-x.innerText=parseInt(x.innerText)+1;
-total++;
-document.getElementById("cart").innerText=total;
+let cartData = JSON.parse(localStorage.getItem("halaCart")) || {};
+
+window.onload = function(){
+
+["p1","p2","p3","p4"].forEach(id=>{
+
+if(cartData[id]){
+document.getElementById(id).innerText = cartData[id];
+total += cartData[id];
 }
+
+});
+
+document.getElementById("cart").innerText = total;
+
+}
+```
+
+function plus(id){
+
+let x = document.getElementById(id);
+
+x.innerText = parseInt(x.innerText) + 1;
+
+// save in cart
+cartData[id] = parseInt(x.innerText);
+
+localStorage.setItem("halaCart", JSON.stringify(cartData));
+
+// update total
+total++;
+
+document.getElementById("cart").innerText = total;
 
 function minus(id){
-let x=document.getElementById(id);
 
-if(parseInt(x.innerText)>0){
-x.innerText=parseInt(x.innerText)-1;
+let x = document.getElementById(id);
+
+if(parseInt(x.innerText) > 0){
+
+x.innerText = parseInt(x.innerText) - 1;
+
+// update cart storage
+cartData[id] = parseInt(x.innerText);
+
+localStorage.setItem("halaCart", JSON.stringify(cartData));
+
+// update total
 total--;
-document.getElementById("cart").innerText=total;
+
+document.getElementById("cart").innerText = total;
+
 }
+
 }
 </script>
 
