@@ -143,16 +143,28 @@ allow="autoplay">
 
 <div class="card">
 <h3></h3>
-<p>حليب - لبن - زبادي</p>
-<a href="dairy.html">تسوق الآن</a>
+```html
+<div class="card">
+<h3>🥬 الخضروات</h3>
+<p>طماطم - خيار - بطاطس</p>
+<a href="vegetables.html">تسوق الآن</a>
+</div>
+```
+
 </div>
 
 </div>
 
 <a class="whatsapp"
-href="https://wa.me/96597984011">
+onclick="sendOrder()">
 💬
 </a>
+
+<script>
+function sendOrder(){
+alert("Please add products first. We will connect all pages to one cart next.");
+}
+</script>
 
 </body>
 </html>
