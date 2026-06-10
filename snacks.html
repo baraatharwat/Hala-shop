@@ -163,7 +163,44 @@ document.getElementById("cart").innerText=total;
 }
 }
 </script>
+<script>
+function getCart(){
+return JSON.parse(localStorage.getItem("halaCart")) || {};
+}
 
+function saveCart(cart){
+localStorage.setItem("halaCart", JSON.stringify(cart));
+}
+
+function add(item){
+
+let cart = getCart();
+
+cart[item] = (cart[item] || 0) + 1;
+
+saveCart(cart);
+
+update();
+}
+
+function update(){
+
+let cart = getCart();
+
+let total = 0;
+
+for(let i in cart){
+total += cart[i];
+}
+
+let el = document.getElementById("cartCount");
+if(el){
+el.innerText = total;
+}
+}
+
+update();
+</script>
 </body>
 </html>
 ```
