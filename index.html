@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -9,47 +8,19 @@
 <style>
 body{
 margin:0;
-font-family:Arial,sans-serif;
-background:#f5f5f5;
+font-family:Arial;
+background:#0a0a0a;
+color:white;
 }
 
 header{
-background:#16a34a;
-color:white;
-text-align:center;
+background:#111;
 padding:25px;
-}
-
-nav{
-display:flex;
-justify-content:center;
-gap:15px;
-padding:15px;
-background:white;
-}
-
-nav a{
-text-decoration:none;
-background:#16a34a;
-color:white;
-padding:10px 15px;
-border-radius:8px;
-}
-
-.hero{
-padding:20px;
 text-align:center;
+border-bottom:2px solid #22c55e;
 }
 
-.video{
-width:95%;
-max-width:900px;
-height:450px;
-border:none;
-border-radius:15px;
-}
-
-.categories{
+.container{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
@@ -57,115 +28,55 @@ padding:20px;
 }
 
 .card{
-background:white;
+background:#151515;
 padding:20px;
-border-radius:15px;
+border-radius:12px;
 text-align:center;
-box-shadow:0 2px 10px rgba(0,0,0,.1);
+border:1px solid #333;
 }
 
-.card a{
+a{
 display:inline-block;
 margin-top:10px;
-background:#16a34a;
+background:#22c55e;
 color:white;
 padding:10px 15px;
 border-radius:8px;
 text-decoration:none;
-}
-
-.cart{
-position:fixed;
-top:20px;
-left:20px;
-background:#16a34a;
-color:white;
-padding:10px 15px;
-border-radius:10px;
-font-weight:bold;
-}
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-width:60px;
-height:60px;
-border-radius:50%;
-background:#25D366;
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-text-decoration:none;
-font-size:28px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="cart">🛒 0</div>
-
 <header>
 <h1>🛒 هلا شوب</h1>
-<p>كل ما تحتاجه في أي وقت</p>
+<p>اختر القسم</p>
 </header>
 
-<nav>
-<a href="drinks.html">المشروبات</a>
-<a href="snacks.html">السناكات</a>
-<a href="vegetables.html">الخضروات</a>
-</nav>
-
-<div class="hero">
-<h2>العروض الحالية</h2>
-
-<iframe class="video"
-src="https://drive.google.com/file/d/1iMf2Uevs5F-wLeO3YOxOf5Ad21g55umj/preview"
-allow="autoplay">
-</iframe>
-</div>
-
-<div class="categories">
+<div class="container">
 
 <div class="card">
 <h3>🥤 المشروبات</h3>
-<p>بيبسي - سفن أب - ميرندا</p>
-<a href="drinks.html">تسوق الآن</a>
+<a href="drinks.html">دخول</a>
 </div>
 
 <div class="card">
 <h3>🍫 السناكات</h3>
-<p>شيبس - كيت كات - دوريتوس</p>
-<a href="snacks.html">تسوق الآن</a>
+<a href="snacks.html">دخول</a>
 </div>
-
-<div class="card">
-<h3></h3>
 
 <div class="card">
 <h3>🥬 الخضروات</h3>
-<p>طماطم - خيار - بطاطس</p>
-<a href="vegetables.html">تسوق الآن</a>
-</div>
-```
-
+<a href="vegetables.html">دخول</a>
 </div>
 
+<div class="card">
+<h3>🛒 السلة</h3>
+<a href="cart.html">فتح</a>
 </div>
 
-<a class="whatsapp"
-onclick="sendOrder()">
-💬
-</a>
-
-<script>
-function sendOrder(){
-alert("Please add products first. We will connect all pages to one cart next.");
-}
-</script>
+</div>
 
 </body>
 </html>
-```
